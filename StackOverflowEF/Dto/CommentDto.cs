@@ -1,7 +1,7 @@
-﻿namespace StackOverflowEF.Dto
+﻿namespace StackOverflowEF.Dto;
+
+public class CommentDto
 {
-    public class CommentDto
-    {
-        public string Content { get; set; }
-    }
+    public string Content { get; set; }
 }
+

@@ -1,7 +1,7 @@
-﻿namespace StackOverflowEF.Dto
+﻿namespace StackOverflowEF.Dto;
+
+public class TagDto
 {
-    public class TagDto
-    {
-        public string Name { get; set; }
-    }
+    public string Name { get; set; }
 }
+

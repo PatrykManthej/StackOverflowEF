@@ -1,7 +1,7 @@
-﻿namespace StackOverflowEF.Dto
+﻿namespace StackOverflowEF.Dto;
+
+public class AnswerDto
 {
-    public class AnswerDto
-    {
-        public string Content { get; set; }
-    }
+    public string Content { get; set; }
 }
+
