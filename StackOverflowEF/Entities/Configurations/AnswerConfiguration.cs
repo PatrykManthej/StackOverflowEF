@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using static StackOverflowEF.Entities.Configurations.UserConfiguration;
 
 namespace StackOverflowEF.Entities.Configurations
 {
@@ -19,10 +20,10 @@ namespace StackOverflowEF.Entities.Configurations
 
             builder.HasData
                 (
-                new Answer() { Id = 1, Content = "You can do it in dbContext class", QuestionId = 1, UserId = Guid.Parse("3b16f6ed-85e1-47c7-a466-e32bdb6fafc9") },
-                new Answer() { Id = 2, Content = "You need to configure in Program.cs", QuestionId = 2, UserId = Guid.Parse("3b16f6ed-85e1-47c7-a466-e32bdb6fafc9") },
-                new Answer() { Id = 3, Content = "You can just configure like this:", QuestionId = 3, UserId = Guid.Parse("0b72e7c5-6c7a-42ca-b6c4-687cdc937d98") },
-                new Answer() { Id = 4, Content = "DateTimeOffset is a representation of instantaneous time.", QuestionId = 4, UserId = Guid.Parse("1b55d748-2ed4-4092-a1cc-a26c430d9d5e") }
+                new Answer() { Id = 1, Content = "You can do it in dbContext class", QuestionId = 1, UserId = Guid.Parse(FirstUserId) },
+                new Answer() { Id = 2, Content = "You need to configure in Program.cs", QuestionId = 2, UserId = Guid.Parse(FirstUserId) },
+                new Answer() { Id = 3, Content = "You can just configure like this:", QuestionId = 3, UserId = Guid.Parse(SecondUserId) },
+                new Answer() { Id = 4, Content = "DateTimeOffset is a representation of instantaneous time.", QuestionId = 4, UserId = Guid.Parse(ThirdUserId) }
                 );
         }
     }

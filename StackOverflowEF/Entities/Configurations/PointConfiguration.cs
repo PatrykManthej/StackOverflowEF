@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using static StackOverflowEF.Entities.Configurations.UserConfiguration;
 
 namespace StackOverflowEF.Entities.Configurations
 {
@@ -24,15 +25,15 @@ namespace StackOverflowEF.Entities.Configurations
                 .OnDelete(DeleteBehavior.ClientCascade);
 
             builder.HasData(
-                new Point() { Id = 1, QuestionId = 1, UserId = Guid.Parse("3b16f6ed-85e1-47c7-a466-e32bdb6fafc9"), Value = -1},
-                new Point() { Id = 2, QuestionId = 2, UserId = Guid.Parse("3b16f6ed-85e1-47c7-a466-e32bdb6fafc9"), Value = 1},
-                new Point() { Id = 3, QuestionId = 3, UserId = Guid.Parse("3b16f6ed-85e1-47c7-a466-e32bdb6fafc9"), Value = -1},
-                new Point() { Id = 4, QuestionId = 2, UserId = Guid.Parse("0b72e7c5-6c7a-42ca-b6c4-687cdc937d98"), Value = 1},
-                new Point() { Id = 5, QuestionId = 3, UserId = Guid.Parse("0b72e7c5-6c7a-42ca-b6c4-687cdc937d98"), Value = -1},
-                new Point() { Id = 7, QuestionId = 4, UserId = Guid.Parse("1b55d748-2ed4-4092-a1cc-a26c430d9d5e"), Value = 1},
-                new Point() { Id = 8, QuestionId = 2, UserId = Guid.Parse("1b55d748-2ed4-4092-a1cc-a26c430d9d5e"), Value = 1 },
-                new Point() { Id = 9, QuestionId = 1, UserId = Guid.Parse("1b55d748-2ed4-4092-a1cc-a26c430d9d5e"), Value = -1 },
-                new Point() { Id = 10, QuestionId = 3, UserId = Guid.Parse("1b55d748-2ed4-4092-a1cc-a26c430d9d5e"), Value = -1 }
+                new Point() { Id = 1, QuestionId = 1, UserId = Guid.Parse(FirstUserId), Value = -1},
+                new Point() { Id = 2, QuestionId = 2, UserId = Guid.Parse(FirstUserId), Value = 1},
+                new Point() { Id = 3, QuestionId = 3, UserId = Guid.Parse(FirstUserId), Value = -1},
+                new Point() { Id = 4, QuestionId = 2, UserId = Guid.Parse(SecondUserId), Value = 1},
+                new Point() { Id = 5, QuestionId = 3, UserId = Guid.Parse(SecondUserId), Value = -1},
+                new Point() { Id = 7, QuestionId = 4, UserId = Guid.Parse(ThirdUserId), Value = 1},
+                new Point() { Id = 8, QuestionId = 2, UserId = Guid.Parse(ThirdUserId), Value = 1 },
+                new Point() { Id = 9, QuestionId = 1, UserId = Guid.Parse(ThirdUserId), Value = -1 },
+                new Point() { Id = 10, QuestionId = 3, UserId = Guid.Parse(ThirdUserId), Value = -1 }
                 );
         }
     }

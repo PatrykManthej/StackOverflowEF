@@ -5,6 +5,10 @@ namespace StackOverflowEF.Entities.Configurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {
+        public const string FirstUserId = "3b16f6ed-85e1-47c7-a466-e32bdb6fafc9";
+        public const string SecondUserId = "0b72e7c5-6c7a-42ca-b6c4-687cdc937d98";
+        public const string ThirdUserId = "1b55d748-2ed4-4092-a1cc-a26c430d9d5e";
+
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasIndex(u => u.Name).IsUnique();
@@ -24,9 +28,9 @@ namespace StackOverflowEF.Entities.Configurations
 
             builder.HasData
                 (
-                new User() {Id = Guid.Parse("3b16f6ed-85e1-47c7-a466-e32bdb6fafc9"), Email = "user1@example.com", Name = "MarianKowalski123"},
-                new User() {Id = Guid.Parse("0b72e7c5-6c7a-42ca-b6c4-687cdc937d98"), Email = "user2@example.com", Name = "UserDrugi2"},
-                new User() {Id = Guid.Parse("1b55d748-2ed4-4092-a1cc-a26c430d9d5e"), Email = "user3@example.com", Name = "Batman3"}
+                new User() {Id = Guid.Parse(FirstUserId), Email = "user1@example.com", Name = "MarianKowalski123"},
+                new User() {Id = Guid.Parse(SecondUserId), Email = "user2@example.com", Name = "UserDrugi2"},
+                new User() {Id = Guid.Parse(ThirdUserId), Email = "user3@example.com", Name = "Batman3"}
                 );
         }
     }
