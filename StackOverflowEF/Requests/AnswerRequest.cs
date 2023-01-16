@@ -8,6 +8,23 @@ public class AnswerRequest
 {
     private const string SecondUserId = "0B72E7C5-6C7A-42CA-B6C4-687CDC937D98";
 
+    public static WebApplication RegisterEndpoints(WebApplication app)
+    {
+        app.MapGet("answers/{id}", GetAnswerById)
+            .WithTags("Answers");
+
+        app.MapPost("questions/{questionId}/answers", CreateAnswer)
+            .WithTags("Answers");
+
+        app.MapPut("answers/{answerId}", UpdateAnswer)
+            .WithTags("Answers");
+
+        app.MapDelete("answers/{answerId}", DeleteAnswer)
+            .WithTags("Answers");
+
+        return app;
+    }
+
     public static IResult GetAnswerById(StackOverflowContext db, int id)
     {
         var answer = db.Answers.FirstOrDefault(a => a.Id == id);
@@ -42,7 +59,7 @@ public class AnswerRequest
         question.Answers.Add(newAnswer);
         db.SaveChanges();
 
-        return Results.Created($"questions/answers/{newAnswer.Id}", newAnswer);
+        return Results.Created($"answers/{newAnswer.Id}", newAnswer);
     }
 
     public static IResult UpdateAnswer(StackOverflowContext db, int answerId, AnswerDto answerDto)

@@ -9,6 +9,33 @@ public class QuestionRequest
 {
     private const string SecondUserId = "0B72E7C5-6C7A-42CA-B6C4-687CDC937D98";
 
+    public static WebApplication RegisterEndpoints(WebApplication app)
+    {
+        app.MapGet("questions/score", (StackOverflowContext db) =>
+        {
+            var questions = db.ViewQuestionsWithScore.ToList();
+            return questions;
+        })
+            .WithTags("Questions");
+
+        app.MapGet("questions", GetAllQuestions)
+            .WithTags("Questions");
+
+        app.MapGet("questions/{id}", GetQuestionById)
+            .WithTags("Questions");
+
+        app.MapPost("questions", CreateQuestion)
+            .WithTags("Questions");
+
+        app.MapPut("questions/{id}", UpdateQuestion)
+            .WithTags("Questions");
+
+        app.MapDelete("questions/{id}", DeleteQuestion)
+            .WithTags("Questions");
+
+        return app;
+    }
+
     public static IResult GetAllQuestions(StackOverflowContext db)
     {
         var questions = db.Questions

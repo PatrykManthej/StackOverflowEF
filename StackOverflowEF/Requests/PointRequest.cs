@@ -7,6 +7,17 @@ public class PointRequest
 {
     private const string SecondUserId = "0b72e7c5-6c7a-42ca-b6c4-687cdc937d98";
 
+    public static WebApplication RegisterEndpoints(WebApplication app)
+    {
+        app.MapPost("questions/{questionId}points", AddQuestionPoint)
+            .WithTags("Points");
+
+        app.MapPost("answers/{answerId}/points", AddAnswerPoint)
+            .WithTags("Points");
+
+        return app;
+    }
+
     public static IResult AddQuestionPoint(StackOverflowContext db, int questionId)
     {
         //Ustawia flage w zaleznosci, ktora strzalka zostala kliknieta w glosowaniu up(true), down(false)
