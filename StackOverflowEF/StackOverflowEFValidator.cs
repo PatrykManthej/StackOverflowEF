@@ -10,7 +10,7 @@ namespace StackOverflowEF
             RuleFor(q => q.Title)
                 .NotEmpty()
                 .MinimumLength(15)
-                .WithMessage("Title of a question must be atleast 15 characters ");
+                .WithMessage("Title of a question must be at least 15 characters ");
             RuleFor(q => q.Content)
                 .NotEmpty();
                 
